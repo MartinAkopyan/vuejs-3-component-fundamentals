@@ -38,34 +38,7 @@
 	<!-- Import Vue.js and axios -->
 	<script src="https://unpkg.com/vue@3"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-	<!-- Your JavaScript Code :) -->
-	<script>
-		Vue.createApp({
-			data() {
-				return {
-					usernames: ['danielkellyio', 'martinakopyan', 'hootlex']
-				}
-			}
-		})
-			.component('github-user-card', {
-				template: '#github-user-card-template',
-				props: {
-					username: { type: String, required: true }
-				},
-				data() {
-					return {
-						user: {}
-					}
-				},
-				async created() {
-					const response = await axios.get(`https://api.github.com/users/${this.username}`)
-					this.user = response.data;
-				}
-			})
-			.mount('#app')
-
-	</script>
+	<script src="app.js"></script>
 </body>
 
 </html>
