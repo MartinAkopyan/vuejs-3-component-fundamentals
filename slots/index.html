@@ -2,18 +2,51 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vue.js Slots Fundamentals</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Vue.js Slots Fundamentals</title>
 </head>
 
 <body>
-  <div id="app">
-    <h1>Vue.js Slots Fundamentals</h1>
-  </div>
-  <script src="https://unpkg.com/vue@3"></script>
-  <script src="app.js"></script>
+
+	<div id="app">
+		<h1>Vue.js Slots Fundamentals</h1>
+		<todo-item>
+			Buy bananas
+			<template v-slot:description>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+			</template>
+			<template v-slot:button-text>
+				Make it nice
+			</template>
+		</todo-item>
+		<todo-item>Eat bananas</todo-item>
+		<todo-item>Celebrate</todo-item>
+	</div>
+
+
+	<script type="text/x-template" id="todo-item-template">
+		<div>
+			<input type="checkbox" v-model="done">
+			<span :class="{done: done}">
+				<slot></slot>
+			</span>
+			<slot name="description"></slot>
+			<button><slot name="button-text">Highlight</slot></button>
+		</div>
+	</script>
+	
+	<style>
+		.done {
+			text-decoration: line-through;
+    	color: green;
+    	font-style: italic;
+		}
+	</style>
+
+	<script src="https://unpkg.com/vue@3"></script>
+	<script src="app.js"></script>
 </body>
 
 </html>
