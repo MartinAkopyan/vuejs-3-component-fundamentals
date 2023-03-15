@@ -32,14 +32,14 @@
 		</div>
 	</script>
 
-	<script type="text/x-template" id="plan-picker-template">
+	<script type="text/x-template" id="plan-picker-item-template">
 		<div class="plans">
-			<plan 
+			<plan-picker-item 
 			v-for="plan in plans" 
 			:name="plan"
 			:selected = "plan === selectedPlan"
 			v-on:select="selectPlan"
-			></plan>
+			></plan-picker-item>
 		</div>
 	</script>
 

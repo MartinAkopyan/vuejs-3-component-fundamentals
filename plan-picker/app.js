@@ -1,4 +1,4 @@
-let PlanComponent = {
+let PlanPickerItemComponent = {
 	template: '#plan-template',
 	props: {
 		name: { type: String, required: true },
@@ -14,8 +14,8 @@ let PlanComponent = {
 
 
 let PlanPickerComponent = {
-	components: {plan: PlanComponent},
-	template: '#plan-picker-template',
+	components: {'plan-picker-item': PlanPickerItemComponent},
+	template: '#plan-picker-item-template',
 	data() {
 		return {
 			plans: ['The Hacker', 'The Curious', 'The Addict'],
